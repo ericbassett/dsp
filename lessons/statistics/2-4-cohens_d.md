@@ -25,8 +25,8 @@ preg = nsfg.ReadFemPreg()
 live = preg[preg.outcome == 1]
 
 #Get all (not just full term) first and other live births 
-first = live[live.pregordr == 1]
-other = live[live.pregordr != 1]
+first = live[live.birthord == 1]
+other = live[live.birthord != 1]
 
 #Print the difference in weight between first/other live births
 print('Mean Weight')
@@ -36,7 +36,7 @@ print(f'Other: {other.totalwgt_lb.mean():.2f} lbs')
 
 Mean Weight  
 First: 7.20 lbs  
-Other: 7.30 lbs  
+Other: 7.33 lbs  
 
 ```python
 def CohenEffectSize(group1, group2):
@@ -62,7 +62,7 @@ def CohenEffectSize(group1, group2):
 cohen_d = CohenEffectSize(first.totalwgt_lb,other.totalwgt_lb)
 print(f'Cohen effect size: {cohen_d:.3f}')
 ```
-Cohen effect size: -0.069
+Cohen effect size: -0.089
 
 # Conclusion
-The difference in mean weight between first and other babies is -0.1 lbs, so first babies are lighter than other babies. Cohen's d is -0.069, so it is a small variation (0.069 standard deviations). Being born first has a small effect on weight, but it is still greater than the effect on pregnancy length.
+The difference in mean weight between first and other babies is -0.13 lbs, so first babies are lighter than other babies. Cohen's d is -0.089, so it is a small variation (0.069 standard deviations). Being born first has a small effect on weight, but it is still greater than the effect on pregnancy length.
